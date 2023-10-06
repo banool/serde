@@ -1010,7 +1010,7 @@ fn deserialize_struct(
     } else {
         let field_names = field_names_idents
             .iter()
-            .flat_map(|&(_, _, aliases)| aliases);
+            .map(|&(name, _, _)| name);
 
         Some(quote! {
             #[doc(hidden)]
